@@ -13,7 +13,7 @@ public interface AccountMapper {
 
 
 
-    @Insert("insert into account(account,pwd) values(#{account},#{pwd})")
+    @Insert("insert into account(userName,dept,account,pwd,des) values(#{userName},#{dept},#{account},#{pwd},#{des})")
     int insert(Account account);
 
     // 查询全部
@@ -21,14 +21,12 @@ public interface AccountMapper {
     List<Account> selectAll();
 
 
-
-
     // 更新 value
     @Update("UPDATE pwd SET value=#{value} WHERE id=#{id}")
     int updateValue(Account model);
 
     // 根据 ID 删除
-    @Delete("DELETE FROM pwd WHERE id=#{id}")
-    int delete(Integer id);
+    @Delete("DELETE FROM pwd WHERE userName=#{userName}")
+    int delete(String userName);
 
 }

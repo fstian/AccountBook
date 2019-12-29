@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.SQLClientInfoException;
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
 public class TestController {
-
-
 
 
     private AccountService service;
@@ -24,15 +24,20 @@ public class TestController {
     }
 
     @RequestMapping("/test")
-    private  List<Account>  test(){
+    private List<Account> test() {
 
-        boolean insert = service.insert(new Account("123", "213"));
-        System.out.println("insert_success"+ insert);
+        try {
+            boolean insert = service.insert(new Account("gooogle", "yt", "yt", "yt123", "des"));
+            System.out.println("insert_success" + insert);
+
+
+        } catch (Exception e) {
+            System.out.print("insert_success___" + e.getMessage());
+
+        }
         List<Account> accounts = service.selectAll();
         return accounts;
     }
-
-
 
 
 }

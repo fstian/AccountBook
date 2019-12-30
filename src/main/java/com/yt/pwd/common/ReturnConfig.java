@@ -27,7 +27,6 @@ public class ReturnConfig {
         @Override
         public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
             System.out.println("beforeBodyWrite >>>>>>>>>>>>>>>>>>>>>>>>>>");
-
             if (o instanceof BaseResp) {
                 return o;
             }

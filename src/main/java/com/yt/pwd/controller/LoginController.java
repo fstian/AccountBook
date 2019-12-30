@@ -5,6 +5,7 @@ import com.yt.pwd.bean.User;
 import com.yt.pwd.common.BaseResp;
 import com.yt.pwd.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ public class LoginController {
 
 
     private LoginService service;
+
 
     @Autowired
     public LoginController(LoginService loginService) {
@@ -34,6 +36,7 @@ public class LoginController {
             return new BaseResp<>("ok");
         }
 
+
         return new BaseResp<>(401, "注册失败", "fail");
 
     }
@@ -47,7 +50,7 @@ public class LoginController {
                 return new BaseResp<>("loginSuccess");
             }
         }
-        return new BaseResp<>(401, "登陆失败", "fail");
+        return new BaseResp<>(404, "登陆失败", "fail");
     }
 
 

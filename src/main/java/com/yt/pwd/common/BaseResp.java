@@ -3,33 +3,31 @@ package com.yt.pwd.common;
 public class BaseResp<T> {
 
 
-    private int type = 200;
+    private int code = 200;
 
     private String msg = "success";
 
     private T data;
 
-
-    public BaseResp(int type, String msg, T data) {
-        this.type = type;
-        this.msg = msg;
-        this.data = data;
+    public BaseResp() {
     }
 
-    public BaseResp() {
+    public BaseResp(int code, String msg, T data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
     }
 
     public BaseResp(T data) {
         this.data = data;
     }
 
-
-    public int getType() {
-        return type;
+    public int getCode() {
+        return code;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMsg() {

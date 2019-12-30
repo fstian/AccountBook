@@ -24,10 +24,17 @@ public class TestController {
     }
 
     @RequestMapping("/test")
-    private  List<Account>  test(){
+    private List<Account> test() {
 
-        boolean insert = service.insert(new Account("123", "213"));
-        System.out.println("insert_success"+ insert);
+        try {
+            boolean insert = service.insert(new Account("gooogle", "yt", "yt", "yt123", "des"));
+            System.out.println("insert_success" + insert);
+
+
+        } catch (Exception e) {
+            System.out.print("insert_success___" + e.getMessage());
+
+        }
         List<Account> accounts = service.selectAll();
         return accounts;
     }
